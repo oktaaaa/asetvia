@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json())
 
-
+app.use(cors());
 // routes
 
 const skincareRoutes = require('./routes/skincare')
