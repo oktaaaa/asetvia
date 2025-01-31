@@ -16,14 +16,7 @@ const SkincareSchema = mongoose.Schema({
         type: Number,
         required: true
     },
-    amountLeft: {
-        type: Number,
-        required: true
-    },
-    uofmeasurement: {
-        type: String,
-        required: true
-    },
+    
     position: {
         type: String,
         required: true
