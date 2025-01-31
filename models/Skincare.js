@@ -9,7 +9,7 @@ const SkincareSchema = mongoose.Schema({
         required: true
     },
     expiredYear: {
-        type: Number,
+        type: Date,
         required: true
     },
     stock:  {
