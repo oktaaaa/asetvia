@@ -9,8 +9,6 @@ router.post("/create", async (req, res) => {
     type: req.body.type,
     expiredYear: req.body.expiredYear,
     stock: req.body.stock,
-    amountLeft: req.body.amountLeft,
-    uofmeasurement: req.body.uofmeasurement,
     position: req.body.position,
     review: req.body.review,
   });
@@ -44,4 +42,27 @@ router.delete("/:ID", async (req, res) => {
     });
   }
 });
+
+router.put("/:id", async (req, res) => {
+  try {
+    const skincare = await Skincare.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    res.status(200).json({
+      message: "Skincare Updated",
+      Data: skincare,
+    });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const skincare = await Skincare.findById(req.params.id);
+    res.status(200).json(skincare);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+})
 module.exports = router;
