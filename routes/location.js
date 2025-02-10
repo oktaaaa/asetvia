@@ -23,6 +23,7 @@ router.post("/add-location", upload.single("image"), async (req, res) => {
 
     const dataLocation = new Location({
       name: req.body.name,
+      spaceNameAndCode: req.body.spaceNameAndCode,
       image: imageUrl, // Save image path
     });
 
