@@ -26,7 +26,7 @@ const locationRoutes = require("./routes/location");
 app.use("/skincare", skincareRoutes);
 app.use("/book", bookRoutes);
 app.use("/location", locationRoutes);
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 mongoose.connect(process.env.DB_CONNECTION, {
   useNewUrlParser: true,
