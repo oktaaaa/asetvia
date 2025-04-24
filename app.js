@@ -30,10 +30,10 @@ app.use("/book", bookRoutes);
 app.use("/location", locationRoutes);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-mongoose.connect(process.env.DB_CONNECTION, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// mongoose.connect(process.env.DB_CONNECTION, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error"));
