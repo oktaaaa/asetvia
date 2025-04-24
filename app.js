@@ -24,11 +24,13 @@ app.use(cors());
 const skincareRoutes = require("./routes/skincare");
 const bookRoutes = require("./routes/book");
 const locationRoutes = require("./routes/location");
+const categoryRoutes = require("./routes/category")
 
 app.use("/skincare", skincareRoutes);
 app.use("/book", bookRoutes);
 app.use("/location", locationRoutes);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/category", categoryRoutes)
 
 mongoose.connect(process.env.DB_CONNECTION, {
   useNewUrlParser: true,
