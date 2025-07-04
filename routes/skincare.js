@@ -9,7 +9,8 @@ router.post("/create", async (req, res) => {
     type: req.body.type,
     expiredYear: req.body.expiredYear,
     stock: req.body.stock,
-    position: req.body.position,
+    category: req.body.category,
+    location: req.body.location,
     review: req.body.review,
   });
 
@@ -23,7 +24,7 @@ router.post("/create", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const skincare = await Skincare.find();
+    const skincare = await Skincare.find().populate("category").populate("location");
     res.json(skincare);
   } catch (error) {
     res.json({ message: error });
