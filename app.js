@@ -3,12 +3,15 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
-
+const { injectSpeedInsights } = require("@vercel/speed-insights");
 
 // ADD THIS
 var cors = require("cors");
 app.use(cors());
 require("dotenv/config");
+
+// Initialize Vercel Speed Insights
+injectSpeedInsights();
 
 app.use(
   bodyParser.urlencoded({
